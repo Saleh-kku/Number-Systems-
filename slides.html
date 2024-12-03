@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Systems Slides</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            background-color: #2a2a3c;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+            transition: opacity 0.5s ease;
+            width: 80%;
+            max-width: 900px;
+            height: 80%;
+            overflow-y: auto;
+        }
+        .active {
+            display: block;
+            opacity: 1;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff9f00;
+        }
+        h2 {
+            font-size: 2em;
+            color: #ff6f00;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+        p, pre {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background-color: #ff6f00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #ff9f00;
+            transform: scale(1.05);
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+        }
+        th, td {
+            border: 1px solid #ff9f00;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        th {
+            background-color: #3a3a4a;
+        }
+        pre {
+            background-color: #444c56;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide active">
+        <h1>Introduction to Number Systems</h1>
+        <p>Understanding Different Number Systems</p>
+    </div>
+
+    <div class="slide">
+        <h2>Decimal (Base 10)</h2>
+        <p>This is the most commonly used number system, which uses the digits 0 to 9.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Binary (Base 2)</h2>
+        <p>This number system uses only two digits: 0 and 1.</p>
+        <p>It is the fundamental number system used in digital electronics and computer systems.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Octal (Base 8)</h2>
+        <p>This number system uses the digits 0 to 7.</p>
+        <p>It is sometimes used as an intermediate step in converting between binary and hexadecimal.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Hexadecimal (Base 16)</h2>
+        <p>This number system uses the digits 0 to 9 and the letters A to F to represent values from 0 to 15.</p>
+        <p>It is commonly used in computer programming and digital electronics.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Number System Conversion Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Decimal</th>
+                    <th>Octal</th>
+                    <th>Binary</th>
+                    <th>Hexadecimal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>2</td><td>2</td><td>10</td><td>2</td></tr>
+                <tr><td>3</td><td>3</td><td>11</td><td>3</td></tr>
+                <tr><td>4</td><td>4</td><td>100</td><td>4</td></tr>
+                <tr><td>5</td><td>5</td><td>101</td><td>5</td></tr>
+                <tr><td>6</td><td>6</td><td>110</td><td>6</td></tr>
+                <tr><td>7</td><td>7</td><td>111</td><td>7</td></tr>
+                <tr><td>8</td><td>10</td><td>1000</td><td>8</td></tr>
+                <tr><td>9</td><td>11</td><td>1001</td><td>9</td></tr>
+                <tr><td>10</td><td>12</td><td>1010</td><td>A</td></tr>
+                <tr><td>11</td><td>13</td><td>1011</td><td>B</td></tr>
+                <tr><td>12</td><td>14</td><td>1100</td><td>C</td></tr>
+                <tr><td>13</td><td>15</td><td>1101</td><td>D</td></tr>
+                <tr><td>14</td><td>16</td><td>1110</td><td>E</td></tr>
+                <tr><td>15</td><td>17</td><td>1111</td><td>F</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="slide">
+        <h2>Converting from Binary, Octal, or Hexadecimal to Decimal</h2>
+        <h3>Binary to Decimal</h3>
+        <p>To convert a binary number to decimal, multiply each bit by its corresponding power of 2 and then add the results.</p>
+        <p>Example: Convert <code>1010.01</code> (binary) to decimal:</p>
+        <pre>
+(1 × 2<sup>3</sup>) + (0 × 2<sup>2</sup>) + (1 × 2<sup>1</sup>) + (0 × 2<sup>0</sup>) + (0 × 2<sup>-1</sup>) + (1 × 2<sup>-2</sup>) = 10.25 (decimal)
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h3>Octal to Decimal</h3>
+        <p>Example: Convert <code>456.7</code> (octal) to decimal:</p>
+        <pre>
+(4 × 8<sup>2</sup>) + (5 × 8<sup>1</sup>) + (6 × 8<sup>0</sup>) + (7 × 8<sup>-1</sup>) = 302.875 (decimal)
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h3>Hexadecimal to Decimal</h3>
+        <p>Example: Convert <code>A7F.C</code> (hexadecimal) to decimal:</p>
+        <pre>
+(10 × 16<sup>2</sup>) + (7 × 16<sup>1</sup>) + (15 × 16<sup>0</sup>) + (12 × 16<sup>-1</sup>) = 2687.75 (decimal)
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h2>Converting from Decimal to Other Number Systems</h2>
+        <h3>Decimal to Binary</h3>
+        <p>Divide the decimal number by 2 repeatedly, and the remainders will give the binary representation.</p>
+        <p>Example: Convert <code>42</code> (decimal) to binary:</p>
+        <pre>
+42 ÷ 2 = 21  R0
+21 ÷ 2 = 10  R1
+10 ÷ 2 = 5   R0
+5 ÷ 2 = 2    R1
+2 ÷ 2 = 1    R0
+1 ÷ 2 = 0    R1
+        </pre>
+        <p>The binary representation is: <code>101010</code></p>
+    </div>
+
+    <div class="slide">
+        <h3>Decimal to Octal</h3>
+        <p>Example: Convert <code>302.875</code> (decimal) to octal:</p>
+        <pre>
+302 ÷ 8 = 37   R6
+37 ÷ 8 = 4     R5
+4 ÷ 8 = 0      R4
+0.875 × 8 = 7  R0
+        </pre>
+        <p>The octal representation is: <code>456.7</code></p>
+    </div>
+
+    <div class="slide">
+        <h3>Decimal to Hexadecimal</h3>
+        <p>Example: Convert <code>2687.75</code> (decimal) to hexadecimal:</p>
+        <pre>
+2687 ÷ 16 = 167  R15 (F)
+167 ÷ 16 = 10    R7
+10 ÷ 16 = 0      R10 (A)
+0.75 × 16 = 12   R0 (C)
+        </pre>
+        <p>The hexadecimal representation is: <code>A7F.C</code></p>
+    </div>
+
+    <div class="slide">
+        <h2>Converting Between Binary, Octal, and Hexadecimal</h2>
+        <h3>Binary to Octal</h3>
+        <p>Group the binary digits into sets of three, starting from the right.</p>
+        <p>Example: Convert <code>101110</code> (binary) to octal:</p>
+        <pre>
+000 101  ->  5
+110        ->  6
+        </pre>
+        <p>The octal representation is: <code>56</code></p>
+    </div>
+
+    <div class="slide">
+        <h3>Binary to Hexadecimal</h3>
+        <p>Group the binary digits into sets of four, starting from the right.</p>
+        <p>Example: Convert <code>11011011</code> (binary) to hexadecimal:</p>
+        <pre>
+1101 -> D
+1011 -> B
+        </pre>
+        <p>The hexadecimal representation is: <code>DB</code></p>
+    </div>
+
+    <div class="slide">
+        <h2>Binary Operations</h2>
+        <h3>Binary Addition</h3>
+        <p>Add the corresponding bits:</p>
+        <pre>
+0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 10 (carry 1)
+        </pre>
+
+        <h3>Binary Subtraction</h3>
+        <p>Borrow from the next place value as needed:</p>
+        <pre>
+0 - 0 = 0
+1 - 0 = 1
+1 - 1 = 0
+0 - 1 = 1 (borrow 1)
+        </pre>
+    </div>
+
+    <div class="button-container">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
