@@ -53,9 +53,10 @@
             color: #ffffff; /* Paragraph Font Color */
         }
         img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
+        max-width: 100%;  /* Ensure image does not exceed slide width */
+        max-height: 80%;  /* Limit height to prevent overflow */
+        object-fit: cover; /* Scale image to cover the container while maintaining aspect ratio */
+        margin: 20px 0;    /* Add margin for spacing */
         }
         table {
             margin: auto;
