@@ -41,3 +41,172 @@
 <p style="line-height: 1.6;">(10 &times; 16<sup>2</sup>) + (7 &times; 16<sup>1</sup>) + (15 &times; 16<sup>0</sup>) + (12 &times; 16<sup>-1</sup>) = 2560 + 112 + 15 + 0.75 = 2687.75 (decimal)</p>
 </div>
 </div>
+<p style="text-align: right;"></p>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><header style="text-align: center; padding: 20px; background-color: #4a90e2; color: white; border-radius: 8px;">
+<h1 style="margin: 0; font-size: 2.5em;">Introduction to Number Systems</h1>
+</header>
+<section style="margin: 20px 0; padding: 15px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
+<h2 style="color: #4a90e2;">Converting from Decimal to Other Number Systems</h2>
+<h3>Decimal to Binary</h3>
+<p>Divide the decimal number by 2 repeatedly, and the remainders, when read from bottom to top, will give the binary representation.</p>
+<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>42</strong> (decimal) to binary:
+<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">42 &divide; 2 = 21</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">21 &divide; 2 = 10</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 &divide; 2 = 5</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5 &divide; 2 = 2</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2 &divide; 2 = 1</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1 &divide; 2 = 0</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<strong>The binary representation is:</strong> <code>101010</code></div>
+<h3>Decimal to Octal</h3>
+<p>Divide the decimal number by 8 repeatedly, and the remainders, when read from bottom to top, will give the octal representation.</p>
+<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>302.875</strong> (decimal) to octal:
+<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">302 &divide; 8 = 37</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">6</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">37 &divide; 8 = 4</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">4 &divide; 8 = 0</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">4</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0.875 &times; 8 = 7</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+<strong>The octal representation is:</strong> <code>456.7</code></div>
+<h3>Decimal to Hexadecimal</h3>
+<p>Divide the decimal number by 16 repeatedly, and the remainders, when read from bottom to top, will give the hexadecimal representation.</p>
+<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>2687.75</strong> (decimal) to hexadecimal:
+<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2687 &divide; 16 = 167</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">15 (F)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">167 &divide; 16 = 10</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">7</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 &divide; 16 = 0</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 (A)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0.75 &times; 16 = 12</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">C</td>
+</tr>
+</tbody>
+</table>
+<strong>The hexadecimal representation is:</strong> <code>A7F.C</code></div>
+</section>
+<footer style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+<p style="text-align: right;">&copy; 2024 Number Systems Tutorial</p>
+</footer>
+<p></p>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><header style="text-align: center; padding: 20px; background-color: #007acc; color: white; border-radius: 10px;">
+<h1 style="margin: 0; font-size: 2.5em;">Introduction to Number Systems</h1>
+</header>
+<section style="margin: 20px 0; padding: 15px; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.3s;">
+<h2 style="color: #007acc;">Converting Between Binary, Octal, and Hexadecimal</h2>
+<h3>Binary to Octal</h3>
+<p>Group the binary digits into sets of three, starting from the right. Replace each group with the corresponding octal digit (0-7).</p>
+<div class="example" style="background-color: #e6f7ff; border-left: 5px solid #007acc; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <code>101110</code> (binary) to octal:
+<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Binary Group</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Octal Digit</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">000 101</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">110</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">6</td>
+</tr>
+</tbody>
+</table>
+<strong>The octal representation is:</strong> <code>56</code></div>
+<h3>Binary to Hexadecimal</h3>
+<p>Group the binary digits into sets of four, starting from the right. Replace each group with the corresponding hexadecimal digit (0-F).</p>
+<div class="example" style="background-color: #e6f7ff; border-left: 5px solid #007acc; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <code>11011011</code> (binary) to hexadecimal:
+<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tbody>
+<tr>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Binary Group</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Hexadecimal Digit</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1101</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1011</td>
+<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">B</td>
+</tr>
+</tbody>
+</table>
+<strong>The hexadecimal representation is:</strong> <code>DB</code></div>
+<h3>Binary Addition</h3>
+<p>Add the corresponding bits:</p>
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1</li>
+<li>1 + 0 = 1</li>
+<li>1 + 1 = 10 (carry 1)</li>
+</ul>
+<p>Carry the 1 to the next place value as needed.</p>
+<h3>Binary Subtraction</h3>
+<p>Borrow from the next place value as needed:</p>
+<ul>
+<li>0 - 0 = 0</li>
+<li>1 - 0 = 1</li>
+<li>1 - 1 = 0</li>
+<li>0 - 1 = 1 (borrow 1)</li>
+</ul>
+</section>
+<footer style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+<p>&copy; 2024 Number Systems Tutorial</p>
+</footer>
