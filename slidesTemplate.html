@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Template</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2e2e3e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            background-color: #3a3a4a;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+            transition: opacity 0.5s ease;
+            width: 80%;
+            max-width: 900px;
+            height: 80%;
+            overflow-y: auto;
+        }
+        .active {
+            display: block;
+            opacity: 1;
+        }
+        h1 {
+            color: #ff9f00;
+            font-size: 2.5em; /* Title Font Size */
+        }
+        h2 {
+            color: #ff9f00;
+            font-size: 2em; /* Section Header Font Size */
+        }
+        h3 {
+            color: #ff9f00;
+            font-size: 1.5em; /* Subsection Header Font Size */
+        }
+        p {
+            font-size: 1.2em; /* Paragraph Font Size */
+            line-height: 1.5;
+            color: #ffffff; /* Paragraph Font Color */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+        }
+        th, td {
+            border: 1px solid #ff9f00;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em; /* Table Font Size */
+        }
+        th {
+            background-color: #4a4a4a;
+        }
+        pre {
+            background-color: #444c56;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.2em; /* Code Font Size */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em; /* Button Font Size */
+            color: #ffffff;
+            background-color: #ff6f00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #ff9f00;
+            transform: scale(1.05);
+        }
+        .qr-code {
+            margin: 20px 0;
+            width: 150px;
+            height: 150px;
+            background-color: #ffffff;
+            border: 1px solid #ff9f00;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+        }
+        ul {
+            list-style-type: disc; /* Use bullet points */
+            padding-left: 20px; /* Add padding for indentation */
+            text-align: left; /* Align text to the left */
+        }
+        li {
+            margin: 0.5em 0; /* Space between items */
+        }
+        .arabic {
+            direction: rtl; /* Right-to-left direction */
+            text-align: right; /* Align text to the right */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide active">
+        <h1>Slide Title</h1>
+        <p>A brief introduction or overview of the topic.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Image Example</h2>
+        <p>Here’s an example image that illustrates the topic:</p>
+        <img src="path/to/image.jpg" alt="Description of Image">
+    </div>
+
+    <div class="slide">
+        <h2>Table Example</h2>
+        <p>This table shows relevant data:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <tr>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="slide">
+        <h2>Code Example</h2>
+        <p>Here’s a sample code snippet:</p>
+        <pre>
+function exampleFunction() {
+    console.log("Hello, World!");
+}
+        </pre>
+    </div>
+
+    <div class="slide">
+        <h2>Graph Example</h2>
+        <p>This is a placeholder for a graph:</p>
+        <p><em>(Insert graph here)</em></p>
+    </div>
+
+    <div class="slide">
+        <h2>Font Rules</h2>
+        <p>This slide summarizes the font rules used in this presentation:</p>
+        <ul>
+            <li><strong>Font Family:</strong> Arial, sans-serif</li>
+            <li><strong>Headings:</strong> <code>h1</code>: 2.5em, <code>h2</code>: 2em, <code>h3</code>: 1.5em</li>
+            <li><strong>Paragraphs:</strong> 1.2em</li>
+            <li><strong>Color Palette:</strong> 
+                <ul>
+                    <li><code>h1, h2, h3</code>: #ff9f00 (Orange)</li>
+                    <li><code>p</code>: #ffffff (White)</li>
+                    <li><code>table</code>: #ff9f00 border</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>Links</h2>
+        <p>You can include links to external resources:</p>
+        <p><a href="https://www.example.com" style="color: #ff9f00; text-decoration: none;">Visit Example.com</a></p>
+    </div>
+
+    <div class="slide">
+        <h2>QR Code Example</h2>
+        <p>Here’s an example of a QR code:</p>
+        <div class="qr-code">
+            <img src="path/to/qrcode.png" alt="QR Code">
+        </div>
+        <p>Scan this QR code to access additional resources.</p>
+    </div>
+
+    <div class="slide arabic">
+        <h2>Arabic Language Support</h2>
+        <p>هذا نص باللغة العربية. يمكنك استخدام هذا الشريحة لإضافة محتوى باللغة العربية.</p>
+        <p>مثال على النص العربي في الشريحة.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Conclusion</h2>
+        <p>Summarize the key points discussed in the presentation.</p>
+    </div>
+
+    <div class="button-container">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
