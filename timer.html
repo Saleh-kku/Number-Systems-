@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Work Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #181818;
+            color: #f0f0f0;
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        #timer {
+            font-size: 72px; /* Increased size */
+            margin: 20px 0;
+            padding: 10px;
+            background: #282828;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffcc00;
+            color: #181818;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 80px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            background-color: #282828;
+            color: #f0f0f0;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+        }
+        td[contenteditable="true"]:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deep Work Timer</h1>
+    <div>
+        <label for="sessionName">Session Name:</label>
+        <input type="text" id="sessionName" placeholder="Session Name">
+    </div>
+    <div>
+        <label for="workDuration">Work Duration (min):</label>
+        <input type="number" id="workDuration" min="1" value="25">
+    </div>
+    <div>
+        <label for="breakDuration">Break Duration (min):</label>
+        <input type="number" id="breakDuration" min="1" value="5">
+    </div>
+    <div id="timer">25:00</div>
+    <button id="startButton">Start</button>
+    <button id="resetButton">Reset</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Session Name</th>
+                <th>Duration (min)</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="sessionLog"></tbody>
+    </table>
+
+    <audio id="alarmSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+    <script>
+        let timer;
+        let isWorking = true;
+        let timeRemaining;
+
+        const timerDisplay = document.getElementById('timer');
+        const workDurationInput = document.getElementById('workDuration');
+        const breakDurationInput = document.getElementById('breakDuration');
+        const sessionNameInput = document.getElementById('sessionName');
+        const startButton = document.getElementById('startButton');
+        const resetButton = document.getElementById('resetButton');
+        const sessionLog = document.getElementById('sessionLog');
+        const alarmSound = document.getElementById('alarmSound');
+
+        function updateDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function addSessionToLog(duration) {
+            const row = document.createElement('tr');
+            const date = new Date();
+            const sessionDate = date.toLocaleDateString();
+            const sessionTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            row.innerHTML = `
+                <td contenteditable="true">${sessionNameInput.value}</td>
+                <td>${duration}</td>
+                <td>${sessionDate}</td>
+                <td>${sessionTime}</td>
+            `;
+            sessionLog.appendChild(row);
+        }
+
+        function alertUser() {
+            document.body.style.backgroundColor = isWorking ? '#ff4d4d' : '#4dff4d'; // Change background color
+            alarmSound.play(); // Play alarm sound
+            setTimeout(() => {
+                document.body.style.backgroundColor = '#181818'; // Reset background color
+            }, 3000);
+        }
+
+        function startTimer() {
+            const workDuration = parseInt(workDurationInput.value) * 60;
+            const breakDuration = parseInt(breakDurationInput.value) * 60;
+
+            timeRemaining = isWorking ? workDuration : breakDuration;
+
+            timer = setInterval(() => {
+                timeRemaining--;
+                updateDisplay();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    addSessionToLog(isWorking ? workDuration / 60 : breakDuration / 60);
+                    alertUser();
+                    alert(isWorking ? 'Work session completed! Time for a break!' : 'Break time is over! Let\'s get back to work!');
+                    isWorking = !isWorking;
+                    startTimer();
+                }
+            }, 1000);
+        }
+
+        startButton.addEventListener('click', () => {
+            clearInterval(timer);
+            isWorking = true; // Always start with work
+            startTimer();
+        });
+
+        resetButton.addEventListener('click', () => {
+            clearInterval(timer);
+            timerDisplay.textContent = '25:00';
+            workDurationInput.value = 25;
+            breakDurationInput.value = 5;
+            sessionNameInput.value = '';
+            isWorking = true;
+            document.body.style.backgroundColor = '#181818'; // Reset background color
+        });
+    </script>
+</body>
+</html>
