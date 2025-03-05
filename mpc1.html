@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8086 Microprocessor Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .note {
+            background: #ffeb3b;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>8086 Microprocessor Tutorial</h1>
+    </header>
+    <main>
+        <h2>Introduction</h2>
+        <p>The 8086 microprocessor, introduced by Intel in 1978, is one of the most influential processors in computer architecture history. It marked the transition from 8-bit to 16-bit processing and laid the foundation for modern microprocessors. This tutorial provides a detailed explanation of its features, architecture, and operations, serving as a comprehensive reference for students and professionals.</p>
+
+        <h2>1. Microprocessor: Basics and Purpose</h2>
+        <p>A <strong>microprocessor</strong> is the "brain" of a computer. It performs arithmetic, logic, and control operations, enabling the computer to execute instructions from a program. The 8086 microprocessor is a pivotal step in microprocessor evolution.</p>
+
+        <h3>Why 8086?</h3>
+        <ul>
+            <li>The 8086 is an <strong>enhancement of the 8085 microprocessor</strong>, offering greater data width (16-bit) and addressing capabilities (1 MB memory).</li>
+            <li>It introduced <strong>pipelining</strong>, <strong>instruction queuing</strong>, and <strong>powerful instructions</strong> for operations like multiplication and division.</li>
+        </ul>
+
+        <h2>2. Features of the 8086 Microprocessor</h2>
+        <p>The 8086 microprocessor includes several features that make it stand out. Let's explore them in detail:</p>
+
+        <ul>
+            <li><strong>16-bit Processor:</strong> The 8086 has a 16-bit Arithmetic Logic Unit (ALU), 16-bit registers, and a 16-bit data bus. This means it can process 16 bits of data at once.</li>
+            <li><strong>20-bit Address Bus:</strong> With its 20 address lines, the 8086 can access <strong>1 MB of memory</strong> (2<sup>20</sup> = 1,048,576 bytes).</li>
+            <li><strong>Instruction Queue:</strong> The 8086 introduced <strong>pipelining</strong>, allowing it to prefetch up to 6 bytes of instructions. This reduces the CPU idle time and speeds up execution.</li>
+            <li><strong>Dual Operating Modes:</strong>
+                <ul>
+                    <li><strong>Minimum Mode:</strong> For systems with a single processor.</li>
+                    <li><strong>Maximum Mode:</strong> For multiprocessor systems.</li>
+                </ul>
+            </li>
+            <li><strong>Clock Speed:</strong> Available in three versions based on clock speed:
+                <ul>
+                    <li>8086: 5 MHz</li>
+                    <li>8086-2: 8 MHz</li>
+                    <li>8086-1: 10 MHz</li>
+                </ul>
+            </li>
+            <li><strong>Interrupts:</strong> Supports <strong>256 vectored interrupts</strong>, allowing it to handle multiple I/O devices efficiently.</li>
+            <li><strong>Transistors:</strong> Contains <strong>29,000 transistors</strong>, showcasing its complexity compared to earlier microprocessors.</li>
+        </ul>
+
+        <h2>3. Comparison: 8085 vs. 8086</h2>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>8085</th>
+                    <th>8086</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data Width</td>
+                    <td>8-bit</td>
+                    <td>16-bit</td>
+                </tr>
+                <tr>
+                    <td>Address Bus</td>
+                    <td>16-bit</td>
+                    <td>20-bit</td>
+                </tr>
+                <tr>
+                    <td>Instruction Queue</td>
+                    <td>No</td>
+                    <td>Yes (6-byte queue)</td>
+                </tr>
+                <tr>
+                    <td>Pipelining</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>I/O Addressing</td>
+                    <td>256 I/O ports</td>
+                    <td>65,536 I/O ports</td>
+                </tr>
+                <tr>
+                    <td>Cost</td>
+                    <td>Low</td>
+                    <td>High</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Architecture of the 8086 Microprocessor</h2>
+        <p>The architecture of the 8086 is divided into two main units:</p>
+        <ul>
+            <li><strong>Bus Interface Unit (BIU)</strong>: Handles all data transfer between the processor and memory/I/O.</li>
+            <li><strong>Execution Unit (EU)</strong>: Executes instructions fetched by the BIU.</li>
+        </ul>
+        <p>For a detailed breakdown of these units, refer to <a href="#functional-block-diagram">Functional Block Diagram</a>.</p>
+
+        <h2>5. Instruction Set of the 8086</h2>
+        <p>The 8086 has a rich set of instructions classified into categories:</p>
+        <ul>
+            <li><strong>Data Transfer Instructions:</strong> Moves data between registers, memory, and I/O.</li>
+            <li><strong>Arithmetic Instructions:</strong> Performs addition, subtraction, multiplication, etc.</li>
+            <li><strong>Logical Instructions:</strong> Performs AND, OR, XOR, NOT operations.</li>
+            <li><strong>Control Transfer Instructions:</strong> Alters the flow of execution.</li>
+            <li><strong>String Instructions:</strong> Operates on blocks of data.</li>
+        </ul>
+
+        <h2>6. Pipelining in the 8086</h2>
+        <p>Pipelining is a technique used to improve the performance of the microprocessor by overlapping instruction execution. It consists of two main stages:</p>
+        <ul>
+            <li><strong>Fetch Stage:</strong> The BIU fetches instructions and stores them in the instruction queue.</li>
+            <li><strong>Execute Stage:</strong> The EU decodes and executes instructions in the queue.</li>
+        </ul>
+
+        <h2>7. Interrupts in the 8086</h2>
+        <p>Interrupts temporarily halt the normal execution of a program to handle an event. The 8086 supports 256 vectored interrupts for efficient multitasking.</p>
+
+        <h2>8. Additional Resources</h2>
+        <ul>
+            <li><strong>Books:</strong> "The Intel Microprocessors" by Barry B. Brey.</li>
+            <li><strong>Simulators:</strong> <a href="https://emu8086.com" target="_blank">emu8086</a>.</li>
+        </ul>
+    </main>
+    <footer>
+        <p>8086 Microprocessor Tutorial | Comprehensive Guide</p>
+    </footer>
+</body>
+</html>
