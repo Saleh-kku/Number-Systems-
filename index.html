@@ -1,337 +1,80 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<div class="container" style="max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px;">
-    <h1 style="text-align: center; color: #4a4e69;">Introduction to Number Systems</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Website</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #181818;
+            color: #F0F0F0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
 
-    <div class="number-system" style="background-color: #d3d3d3; padding: 10px; border-radius: 4px; margin-bottom: 20px;">
-        <h2 style="color: #9a8c98; border-bottom: 2px solid #d3d3d3; padding-bottom: 5px;">Decimal (Base 10)</h2>
-        <p style="line-height: 1.6;">This is the most commonly used number system, which uses the digits 0 to 9.</p>
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #5D5CDE;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .link {
+            background-color: #5D5CDE;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 15px 30px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 200px;
+            text-align: center;
+        }
+
+        .link:hover {
+            background-color: #4C4BBD;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #BBBBBB;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Our Website</h1>
+    <p>Explore our pages and learn more about what we offer.</p>
+
+    <div class="link-container">
+        <a class="link" href="srp.html">Stuck Request Process Details</a>
+        //<a class="link" href="page2.html">Page 2</a>
+        //<a class="link" href="page3.html">Page 3</a>
+        //<a class="link" href="page4.html">Page 4</a>
     </div>
 
-    <div class="number-system" style="background-color: #d3d3d3; padding: 10px; border-radius: 4px; margin-bottom: 20px;">
-        <h2 style="color: #9a8c98; border-bottom: 2px solid #d3d3d3; padding-bottom: 5px;">Binary (Base 2)</h2>
-        <p style="line-height: 1.6;">This number system uses only two digits: 0 and 1. It is the fundamental number system used in digital electronics and computer systems.</p>
-    </div>
+    <footer>
+        &copy; 2025 Your Company Name. All rights reserved.
+    </footer>
 
-    <div class="number-system" style="background-color: #d3d3d3; padding: 10px; border-radius: 4px; margin-bottom: 20px;">
-        <h2 style="color: #9a8c98; border-bottom: 2px solid #d3d3d3; padding-bottom: 5px;">Octal (Base 8)</h2>
-        <p style="line-height: 1.6;">This number system uses the digits 0 to 7. It is sometimes used as an intermediate step in converting between binary and hexadecimal.</p>
-    </div>
-
-    <div class="number-system" style="background-color: #d3d3d3; padding: 10px; border-radius: 4px; margin-bottom: 20px;">
-        <h2 style="color: #9a8c98; border-bottom: 2px solid #d3d3d3; padding-bottom: 5px;">Hexadecimal (Base 16)</h2>
-        <p style="line-height: 1.6;">This number system uses the digits 0 to 9 and the letters A to F to represent values from 0 to 15. It is commonly used in computer programming and digital electronics.</p>
-    </div>
-
-    <div style="margin: 20px 0;">
-        <h2 style="color: #9a8c98; border-bottom: 2px solid #d3d3d3; padding-bottom: 5px;">Number System Conversion Table</h2>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #f9f9f9; border-radius: 4px; overflow: hidden;">
-            <thead>
-                <tr style="background-color: #d3d3d3;">
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">Decimal</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">Octal</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">Binary</th>
-                    <th style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">Hexadecimal</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table rows for values from 0 to 15 -->
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">0</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">0</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">0</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">0</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">2</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">2</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">10</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">2</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">3</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">3</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">11</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">3</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">4</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">4</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">100</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">4</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">5</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">5</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">101</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">5</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">6</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">6</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">110</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">6</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">7</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">7</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">111</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">7</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">8</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">10</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1000</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">8</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">9</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">11</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1001</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">9</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">10</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">12</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1010</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">A</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">11</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">13</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1011</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">B</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">12</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">14</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1100</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">C</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">13</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">15</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1101</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">D</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">14</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">16</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1110</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">E</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">15</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">17</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">1111</td>
-                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; vertical-align: middle;">F</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><header style="text-align: center; padding: 20px; background-color: #4a90e2; color: white; border-radius: 8px;">
-<h1 style="margin: 0; font-size: 2.5em;">Part 1</h1>
-</header>
-<h2 style="color: #4a90e2;">Converting from Binary, Octal, or Hexadecimal to Decimal</h2>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;">
-<h3>Binary to Decimal</h3>
-<p style="line-height: 1.6;">Each bit in the binary number represents a power of 2 (2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup>, etc.).</p>
-<p style="line-height: 1.6;">To convert a binary number to decimal, multiply each bit by its corresponding power of 2 and then add the results.</p>
-<p style="line-height: 1.6;"><strong>Example:</strong> Convert <code style="background-color: #f0f0f0; padding: 2px 4px; border-radius: 4px;">1010.01</code> (binary) to decimal:</p>
-<p style="line-height: 1.6;">(1 &times; 2<sup>3</sup>) + (0 &times; 2<sup>2</sup>) + (1 &times; 2<sup>1</sup>) + (0 &times; 2<sup>0</sup>) + (0 &times; 2<sup>-1</sup>) + (1 &times; 2<sup>-2</sup>) = 8 + 0 + 2 + 0 + 0 + 0.25 = 10.25 (decimal)</p>
-</div>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;">
-<h3>Octal to Decimal</h3>
-<p style="line-height: 1.6;">Each digit in the octal number represents a power of 8 (8<sup>0</sup>, 8<sup>1</sup>, 8<sup>2</sup>, etc.).</p>
-<p style="line-height: 1.6;">To convert an octal number to decimal, multiply each digit by its corresponding power of 8 and then add the results.</p>
-<p style="line-height: 1.6;"><strong>Example:</strong> Convert <code style="background-color: #f0f0f0; padding: 2px 4px; border-radius: 4px;">456.7</code> (octal) to decimal:</p>
-<p style="line-height: 1.6;">(4 &times; 8<sup>2</sup>) + (5 &times; 8<sup>1</sup>) + (6 &times; 8<sup>0</sup>) + (7 &times; 8<sup>-1</sup>) = 256 + 40 + 6 + 0.875 = 302.875 (decimal)</p>
-</div>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;">
-<h3>Hexadecimal to Decimal</h3>
-<p style="line-height: 1.6;">Each digit in the hexadecimal number represents a power of 16 (16<sup>0</sup>, 16<sup>1</sup>, 16<sup>2</sup>, etc.).</p>
-<p style="line-height: 1.6;">To convert a hexadecimal number to decimal, multiply each digit by its corresponding power of 16 and then add the results.</p>
-<p style="line-height: 1.6;"><strong>Example:</strong> Convert <code style="background-color: #f0f0f0; padding: 2px 4px; border-radius: 4px;">A7F.C</code> (hexadecimal) to decimal:</p>
-<p style="line-height: 1.6;">(10 &times; 16<sup>2</sup>) + (7 &times; 16<sup>1</sup>) + (15 &times; 16<sup>0</sup>) + (12 &times; 16<sup>-1</sup>) = 2560 + 112 + 15 + 0.75 = 2687.75 (decimal)</p>
-</div>
-
-<footer style="text-align: center; margin-top: 20px; font-size: 0.9em;">
-<p>&copy; 2024 Number Systems Tutorial - Saleh Alghamdi</p>
-</footer>
-
-<p style="text-align: right;"></p>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><header style="text-align: center; padding: 20px; background-color: #4a90e2; color: white; border-radius: 8px;">
-<h1 style="margin: 0; font-size: 2.5em;">Part 2</h1>
-</header>
-<section style="margin: 20px 0; padding: 15px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s;">
-<h2 style="color: #4a90e2;">Converting from Decimal to Other Number Systems</h2>
-<h3>Decimal to Binary</h3>
-<p>Divide the decimal number by 2 repeatedly, and the remainders, when read from bottom to top, will give the binary representation.</p>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>42</strong> (decimal) to binary:
-<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-<tbody>
-<tr>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">42 &divide; 2 = 21</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">21 &divide; 2 = 10</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 &divide; 2 = 5</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5 &divide; 2 = 2</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2 &divide; 2 = 1</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1 &divide; 2 = 0</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1</td>
-</tr>
-</tbody>
-</table>
-<strong>The binary representation is:</strong> <code>101010</code></div>
-<h3>Decimal to Octal</h3>
-<p>Divide the decimal number by 8 repeatedly, and the remainders, when read from bottom to top, will give the octal representation.</p>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>302.875</strong> (decimal) to octal:
-<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-<tbody>
-<tr>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">302 &divide; 8 = 37</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">6</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">37 &divide; 8 = 4</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">4 &divide; 8 = 0</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">4</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0.875 &times; 8 = 7</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0</td>
-</tr>
-</tbody>
-</table>
-<strong>The octal representation is:</strong> <code>456.7</code></div>
-<h3>Decimal to Hexadecimal</h3>
-<p>Divide the decimal number by 16 repeatedly, and the remainders, when read from bottom to top, will give the hexadecimal representation.</p>
-<div class="example" style="background-color: #e7f1ff; border-left: 5px solid #4a90e2; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <strong>2687.75</strong> (decimal) to hexadecimal:
-<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-<tbody>
-<tr>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Division</th>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #4a90e2; color: white;">Remainder</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">2687 &divide; 16 = 167</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">15 (F)</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">167 &divide; 16 = 10</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">7</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 &divide; 16 = 0</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">10 (A)</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">0.75 &times; 16 = 12</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">C</td>
-</tr>
-</tbody>
-</table>
-<strong>The hexadecimal representation is:</strong> <code>A7F.C</code></div>
-</section>
-<footer style="text-align: center; margin-top: 20px; font-size: 0.9em;">
-<p>&copy; 2024 Number Systems Tutorial - Saleh Alghamdi</p>
-</footer>
-<p></p>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><header style="text-align: center; padding: 20px; background-color: #007acc; color: white; border-radius: 10px;">
-<h1 style="margin: 0; font-size: 2.5em;">Part 3</h1>
-</header>
-<section style="margin: 20px 0; padding: 15px; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.3s;">
-<h2 style="color: #007acc;">Converting Between Binary, Octal, and Hexadecimal</h2>
-<h3>Binary to Octal</h3>
-<p>Group the binary digits into sets of three, starting from the right. Replace each group with the corresponding octal digit (0-7).</p>
-<div class="example" style="background-color: #e6f7ff; border-left: 5px solid #007acc; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <code>101110</code> (binary) to octal:
-<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-<tbody>
-<tr>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Binary Group</th>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Octal Digit</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">000 101</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">5</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">110</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">6</td>
-</tr>
-</tbody>
-</table>
-<strong>The octal representation is:</strong> <code>56</code></div>
-<h3>Binary to Hexadecimal</h3>
-<p>Group the binary digits into sets of four, starting from the right. Replace each group with the corresponding hexadecimal digit (0-F).</p>
-<div class="example" style="background-color: #e6f7ff; border-left: 5px solid #007acc; padding: 10px; margin: 10px 0;"><strong>Example:</strong> Convert <code>11011011</code> (binary) to hexadecimal:
-<table class="conversion-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-<tbody>
-<tr>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Binary Group</th>
-<th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #007acc; color: white;">Hexadecimal Digit</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1101</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">D</td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">1011</td>
-<td style="border: 1px solid #ddd; padding: 8px; text-align: left;">B</td>
-</tr>
-</tbody>
-</table>
-<strong>The hexadecimal representation is:</strong> <code>DB</code></div>
-<h3>Binary Addition</h3>
-<p>Add the corresponding bits:</p>
-<ul>
-<li>0 + 0 = 0</li>
-<li>0 + 1 = 1</li>
-<li>1 + 0 = 1</li>
-<li>1 + 1 = 10 (carry 1)</li>
-</ul>
-<p>Carry the 1 to the next place value as needed.</p>
-<h3>Binary Subtraction</h3>
-<p>Borrow from the next place value as needed:</p>
-<ul>
-<li>0 - 0 = 0</li>
-<li>1 - 0 = 1</li>
-<li>1 - 1 = 0</li>
-<li>0 - 1 = 1 (borrow 1)</li>
-</ul>
-</section>
-<footer style="text-align: center; margin-top: 20px; font-size: 0.9em;">
-<p>&copy; 2024 Number Systems Tutorial - Saleh Alghamdi</p>
-</footer>
+</body>
+</html>
