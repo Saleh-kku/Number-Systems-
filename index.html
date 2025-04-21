@@ -5,76 +5,573 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Our Website</title>
     <style>
+        :root {
+            --primary-color: #5D5CDE;
+            --primary-hover: #4A49C0;
+            --completed-color: #3F6DF6; /* Changed from green to blue */
+            --in-progress-color: #8E44AD; /* Purple for in-progress */
+            --bg-color: #181818;
+            --card-bg: #222222;
+            --text-color: #F0F0F0;
+            --secondary-text: #BBBBBB;
+        }
+
         /* General Styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #181818;
-            color: #F0F0F0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #5D5CDE;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
         p {
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
+        /* Status Legend */
+        .status-legend {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            background-color: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .legend-color.completed {
+            background-color: var(--completed-color);
+        }
+
+        .legend-color.in-progress {
+            background-color: var(--in-progress-color);
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 30px;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .lang-toggle {
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            color: var(--text-color);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .lang-toggle.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Link Container */
         .link-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
         }
 
         .link {
-            background-color: #5D5CDE;
-            color: #FFFFFF;
+            background-color: var(--primary-color);
+            color: white;
             text-decoration: none;
             padding: 15px 30px;
-            margin: 10px 0;
+            margin: 8px 0;
             border-radius: 5px;
-            transition: background-color 0.3s;
-            width: 200px;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 300px;
             text-align: center;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .link:hover {
-            background-color: #4C4BBD;
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
+        /* Flip Card Grid Layout */
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Flip card container */
+        .flip-card {
+            perspective: 1000px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .flip-card-front {
+            background-color: var(--card-bg);
+            border-left: 5px solid var(--in-progress-color);
+        }
+
+        .flip-card-front.completed {
+            border-left: 5px solid var(--completed-color);
+        }
+
+        .flip-card-back {
+            background-color: var(--primary-color);
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .flip-card-back a:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .flip-card h3 {
+            margin: 15px 0;
+            font-size: 1.3rem;
+        }
+
+        .flip-card p {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        /* Icons */
+        [class^="icon-"] {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
         footer {
             margin-top: 50px;
+            padding: 20px 0;
             font-size: 0.9rem;
-            color: #BBBBBB;
+            color: var(--secondary-text);
+            width: 100%;
+        }
+
+        /* RTL Support for Arabic */
+        .rtl {
+            direction: rtl;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .task-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .task-grid {
+                grid-template-columns: 1fr;
+            }
+            .language-selector {
+                position: static;
+                margin: 0 auto 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <h1 id="main-title">Welcome to the Landing Page &#9992;</h1>
+    <p id="main-description">Explore our pages.</p>
 
-    <h1>Welcome to the Landing Page &#9992 </h1>
-    <p>Explore our pages.</p>
+    <div class="status-legend">
+        <div class="legend-item">
+            <div class="legend-color completed"></div>
+            <span id="completed-text">Completed</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color in-progress"></div>
+            <span id="in-progress-text">In Progress</span>
+        </div>
+    </div>
 
-    <div class="link-container">
-        <a class="link" href="srp.html">تفاصيل عملية طلب مخزون</a>
-        <a class="link" href="srp-English.html">Stock Request Process Details</a>
-        <a class="link" href="SI-Arabic.html">تفاصيل عملية البيع و الفوترة </a>
-        <a class="link" href="SI-English.html">Selling & Invoicing Process Details</a>
+    <!-- Quick links container kept empty but preserved for JS functionality -->
+    <div class="link-container" id="quick-links"></div>
+
+    <section class="task-grid" id="process-grid">
+        <!-- Stock Request -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="icon-stock">📦</i>
+                    <h3>Stock Request</h3>
+                    <p>Manage your inventory requests.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Stock Request</h3>
+                    <p>Click below to view detailed information about the stock request process.</p>
+                    <a href="srp-English.html" class="detail-link" data-en="srp-English.html" data-ar="srp.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selling & Invoicing -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front completed">
+                    <i class="icon-invoice">💰</i>
+                    <h3>Selling & Invoicing</h3>
+                    <p>Handle sales transactions and invoicing.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Selling & Invoicing</h3>
+                    <p>Click below to view detailed information about selling and invoicing processes.</p>
+                    <a href="SI-English.html" class="detail-link" data-en="SI-English.html" data-ar="SI-Arabic.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customers Return -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="icon-return">🔄</i>
+                    <h3>Customers Return</h3>
+                    <p>Manage customer return requests.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Customers Return</h3>
+                    <p>Click below to view detailed information about the customer returns process.</p>
+                    <a href="return-English.html" class="detail-link" data-en="return-English.html" data-ar="return.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cash Reconciliation -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front completed">
+                    <i class="icon-reconciliation">📊</i>
+                    <h3>Cash Reconciliation</h3>
+                    <p>Reconcile your cash transactions.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Cash Reconciliation</h3>
+                    <p>Click below to view detailed information about cash reconciliation.</p>
+                    <a href="cash-reconciliation-English.html" class="detail-link" data-en="cash-reconciliation-English.html" data-ar="cash-reconciliation.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase Order -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="icon-purchase-order">📝</i>
+                    <h3>Purchase Order</h3>
+                    <p>Create and manage purchase orders.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Purchase Order</h3>
+                    <p>Click below to view detailed information about purchase orders.</p>
+                    <a href="purchase-order-English.html" class="detail-link" data-en="purchase-order-English.html" data-ar="purchase-order.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salesmen On Boarding -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="icon-onboarding">👥</i>
+                    <h3>Salesmen On Boarding</h3>
+                    <p>Onboard new salesmen effectively.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Salesmen On Boarding</h3>
+                    <p>Click below to view detailed information about salesmen onboarding.</p>
+                    <a href="onboarding-English.html" class="detail-link" data-en="onboarding-English.html" data-ar="onboarding.html">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promissory Note Generator -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front completed">
+                    <i class="icon-promissory-note">📄</i>
+                    <h3>Promissory Note Generator</h3>
+                    <p>Generate promissory notes easily.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Promissory Note Generator</h3>
+                    <p>Click below to view detailed information about the promissory note generator.</p>
+                    <a href="promissory-note-English.html" class="detail-link" data-en="promissory-note-English.html" data-ar="promissory-note.html">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="language-selector">
+        <button class="lang-toggle active" data-lang="en">EN</button>
+        <button class="lang-toggle" data-lang="ar">AR</button>
     </div>
 
     <footer>
         &copy; 2025 Saleh Alghamdi. All rights reserved.
     </footer>
 
+    <script>
+        // Language content
+        const content = {
+            en: {
+                title: "Welcome to the Landing Page &#9992;",
+                description: "Explore our pages.",
+                viewDetails: "View Details",
+                completed: "Completed",
+                inProgress: "In Progress",
+                stockRequest: {
+                    title: "Stock Request",
+                    description: "Manage your inventory requests.",
+                    backDescription: "Click below to view detailed information about the stock request process."
+                },
+                sellingInvoicing: {
+                    title: "Selling & Invoicing",
+                    description: "Handle sales transactions and invoicing.",
+                    backDescription: "Click below to view detailed information about selling and invoicing processes."
+                },
+                customersReturn: {
+                    title: "Customers Return",
+                    description: "Manage customer return requests.",
+                    backDescription: "Click below to view detailed information about the customer returns process."
+                },
+                cashReconciliation: {
+                    title: "Cash Reconciliation",
+                    description: "Reconcile your cash transactions.",
+                    backDescription: "Click below to view detailed information about cash reconciliation."
+                },
+                purchaseOrder: {
+                    title: "Purchase Order",
+                    description: "Create and manage purchase orders.",
+                    backDescription: "Click below to view detailed information about purchase orders."
+                },
+                salesmenOnboarding: {
+                    title: "Salesmen On Boarding",
+                    description: "Onboard new salesmen effectively.",
+                    backDescription: "Click below to view detailed information about salesmen onboarding."
+                },
+                promissoryNote: {
+                    title: "Promissory Note Generator",
+                    description: "Generate promissory notes easily.",
+                    backDescription: "Click below to view detailed information about the promissory note generator."
+                }
+            },
+            ar: {
+                title: "مرحباً بك في الصفحة الرئيسية &#9992;",
+                description: "استكشف صفحاتنا.",
+                viewDetails: "عرض التفاصيل",
+                completed: "مكتمل",
+                inProgress: "قيد التنفيذ",
+                stockRequest: {
+                    title: "طلب المخزون",
+                    description: "إدارة طلبات المخزون الخاصة بك.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول عملية طلب المخزون."
+                },
+                sellingInvoicing: {
+                    title: "البيع والفوترة",
+                    description: "التعامل مع معاملات البيع والفواتير.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول عمليات البيع والفوترة."
+                },
+                customersReturn: {
+                    title: "إرجاع العملاء",
+                    description: "إدارة طلبات إرجاع العملاء.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول عملية إرجاع العملاء."
+                },
+                cashReconciliation: {
+                    title: "تسوية النقدية",
+                    description: "مطابقة المعاملات النقدية الخاصة بك.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول تسوية النقدية."
+                },
+                purchaseOrder: {
+                    title: "أمر الشراء",
+                    description: "إنشاء وإدارة أوامر الشراء.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول أوامر الشراء."
+                },
+                salesmenOnboarding: {
+                    title: "تأهيل المندوبين",
+                    description: "تأهيل المندوبين الجدد بفعالية.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول تأهيل المندوبين."
+                },
+                promissoryNote: {
+                    title: "مولد السندات الإذنية",
+                    description: "إنشاء السندات الإذنية بسهولة.",
+                    backDescription: "انقر أدناه لعرض معلومات مفصلة حول مولد السندات الإذنية."
+                }
+            }
+        };
+
+        // Quick links data - empty arrays to remove the links
+        const quickLinks = {
+            en: [],
+            ar: []
+        };
+
+        // Function to change language
+        function changeLanguage(lang) {
+            // Update active button
+            document.querySelectorAll('.lang-toggle').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update direction for RTL support
+            document.body.classList.toggle('rtl', lang === 'ar');
+            
+            // Update main title and description
+            document.getElementById('main-title').innerHTML = content[lang].title;
+            document.getElementById('main-description').innerHTML = content[lang].description;
+            
+            // Update legend text
+            document.getElementById('completed-text').textContent = content[lang].completed;
+            document.getElementById('in-progress-text').textContent = content[lang].inProgress;
+            
+            // Update quick links
+            const quickLinksContainer = document.getElementById('quick-links');
+            quickLinksContainer.innerHTML = '';
+            quickLinks[lang].forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.href;
+                a.className = 'link';
+                a.textContent = link.text;
+                quickLinksContainer.appendChild(a);
+            });
+            
+            // Update flip cards
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach((card, index) => {
+                // Front card content
+                const frontTitle = card.querySelector('.flip-card-front h3');
+                const frontDesc = card.querySelector('.flip-card-front p');
+                
+                // Back card content
+                const backTitle = card.querySelector('.flip-card-back h3');
+                const backDesc = card.querySelector('.flip-card-back p');
+                const backLink = card.querySelector('.flip-card-back a');
+                
+                // Determine which content to use based on position
+                let contentKey;
+                switch(index) {
+                    case 0: contentKey = 'stockRequest'; break;
+                    case 1: contentKey = 'sellingInvoicing'; break;
+                    case 2: contentKey = 'customersReturn'; break;
+                    case 3: contentKey = 'cashReconciliation'; break;
+                    case 4: contentKey = 'purchaseOrder'; break;
+                    case 5: contentKey = 'salesmenOnboarding'; break;
+                    case 6: contentKey = 'promissoryNote'; break;
+                }
+                
+                if (contentKey && content[lang][contentKey]) {
+                    // Update front of card
+                    frontTitle.textContent = content[lang][contentKey].title;
+                    frontDesc.textContent = content[lang][contentKey].description;
+                    
+                    // Update back of card
+                    backTitle.textContent = content[lang][contentKey].title;
+                    backDesc.textContent = content[lang][contentKey].backDescription;
+                    backLink.textContent = content[lang].viewDetails;
+                    backLink.href = backLink.dataset[lang];
+                }
+            });
+        }
+
+        // Attach event listeners to language buttons
+        document.querySelectorAll('.lang-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                changeLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Initialize with English by default
+        changeLanguage('en');
+    </script>
 </body>
 </html>
