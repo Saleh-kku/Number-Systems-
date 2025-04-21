@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selling & Invoicing Process Flow</title>
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #5D5CDE;
+            --dark-bg: #181818;
+            --dark-text: #F0F0F0;
+            --dark-border: #444444;
+            --dark-card: #252525;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* Content Styling */
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .actor-card {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Image Container Styling */
+        .image-container {
+            margin: 25px 0;
+        }
+
+        .responsive-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            background-color: var(--dark-bg);
+        }
+
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Selling & Invoicing Process Flow</h1>
+        </header>
+
+        <section>
+            <h2>System Description</h2>
+            <p>This system facilitates the selling and invoicing process by integrating various stakeholders, ensuring that sales transactions are efficiently managed from customer request to final invoicing and inventory updates.</p>
+        </section>
+
+        <section>
+            <h2>Actor Descriptions</h2>
+            <div class="actor-card">
+                <h3>Customer</h3>
+                <p>The individual or organization requesting to purchase goods or services.</p>
+            </div>
+            <div class="actor-card">
+                <h3>Salesman</h3>
+                <p>The representative who interacts with customers, processes sales orders, and manages payment methods using Zoho CRM.</p>
+            </div>
+            <div class="actor-card">
+                <h3>Accountant</h3>
+                <p>The financial professional responsible for verifying customer details, issuing invoices, and managing financial records using Zoho Books.</p>
+            </div>
+            <div class="actor-card">
+                <h3>Inventory</h3>
+                <p>The system that tracks the availability of items and manages stock levels throughout the sales process.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Process Flow Diagram</h2>
+            <div class="image-container">
+                <div class="responsive-image-wrapper">
+                    <img src="https://www.mermaidchart.com/raw/228b30b3-60af-4970-9254-4cfdfb9cc6b8?theme=light&version=v0.1&format=svg" alt="Process Flow Diagram" class="responsive-image">
+                </div>
+                <figcaption>Process Flow Diagram</figcaption>
+            </div>
+        </section>
+
+        <section>
+            <h2>Process Description</h2>
+            <p>The Selling & Invoicing Process begins with the Salesman initiating a sales request from the Customer, followed by inventory checks and payment processing. Depending on the payment method selected, the system either issues an invoice immediately or processes a deferred payment, leading to appropriate approvals and documentation before finalizing the transaction.</p>
+        </section>
+        
+         <section>
+            <h2>Actor Responsibilities</h2>
+            <p>
+                Below is a detailed description of the responsibilities of each actor in the sales and invoicing process, along with a sequence diagram and scenario example for context.
+            </p>
+            
+            <h3>1. Salesmen </h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li> Initiates the sales process by submitting a sale oreder form. He/she should provide the customer's essential details such as Company Name, Commercial Registration Number, VAT Number, date, time, items, quantity, and choose sale price.</li>
+                    <li>Ensure the accuracy and completeness of requests, complying with company policies and inventory needs.</li>
+                    <li>Confirm receipt of approval or rejection notifications from Zoho CRM.</li>
+                    <li>Manages immediate payments through various methods, ensuring transactions are processed smoothly.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        A customer approaches the salesman to purchase a facial napkins. The salesman first checks the inventory using the Zoho CRM mobile app to confirm availability. After confirming that the laptop is in stock, he creates a sales order that includes the customer's details and the selected product. He then discusses payment options with the customer, ensuring a seamless transaction.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>2. Accountant</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Verifies customer details, including tax numbers and payment methods, to ensure compliance with financial regulations.</li>
+                    <li>Issues final invoices based on verified sales orders, ensuring that all transactions are accurately documented.</li>
+                    <li>Handles deferred payment approvals by reviewing customer requests and assessing creditworthiness.</li>
+                    <li>Maintains financial records in Zoho Books, ensuring accurate tracking of sales and payments.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        After the salesman creates a sales order for a transaction totaling 1200 SAR, the accountant reviews the customer’s details for accuracy and compliance. Since the invoice exceeds 1000 SAR, the accountant verifies the customer’s tax number and other relevant details before issuing the final invoice, ensuring that all information is correct and well-documented.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>3. Zoho Inventory</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Confirms stock availability in real-time to assist the salesman during the sales process.</li>
+                    <li>Updates inventory levels automatically after sales are completed, ensuring accurate stock management.</li>
+                    <li>Decides whether to approve or reject inventory requests based on availability limits and records.</li>
+                    <li>Initiates the creation of transfer orders in Zoho Inventory upon approval.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        After the salesman completes a sale of three laptops, the inventory system automatically deducts these quantities from the stock levels. The inventory manager receives a notification indicating that the stock for that particular laptop model has dropped below the minimum threshold, prompting an order to replenish the stock before it runs out.
+                    </p>
+                </div>
+            </div>
+            
+
+        </section>
+        
+        <section>
+            <h2>Summary of Responsibilities</h2>
+            <ul>
+                <li><strong>Salesman:</strong> Initiates the sales process, creates sales orders, and manages immediate payments.</li>
+                <li><strong>Accountant:</strong> Verifies customer details, issues final invoices, and handles deferred payment approvals.</li>
+                <li><strong>Inventory:</strong>Updates inventory levels post-sale.</li>
+            </ul>
+            <p>
+                These responsibilities outline the role of each actor and the scenarios in the Selling & Invoicing Process, ensuring efficient communication, sales, invoicing and inventory management.
+            </p>
+        </section>
+
+        <section>
+            <h2>Swimlane Diagram</h2>
+            <div class="image-container">
+                <div class="responsive-image-wrapper">
+                    <img src="https://www.mermaidchart.com/raw/c93ec120-036e-4650-bd4d-2deb266fd5b0?theme=light&version=v0.1&format=svg" alt="Swimlane Diagram" class="responsive-image">
+                </div>
+                <figcaption>Swimlane Diagram</figcaption>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
