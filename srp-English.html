@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Request Process</title>
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #5D5CDE;
+            --light-bg: #FFFFFF;
+            --dark-bg: #181818;
+            --light-text: #333333;
+            --dark-text: #F0F0F0;
+            --light-border: #DDDDDD;
+            --dark-border: #444444;
+            --light-card: #F9F9F9;
+            --dark-card: #252525;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--dark-border);
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        /* Content Styling */
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .actor-card {
+            background-color: var(--dark-card);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .scenario {
+            background-color: rgba(93, 92, 222, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        /* Image Container Styling */
+        .image-container {
+            margin: 25px 0;
+        }
+        
+        .responsive-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            background-color: var(--dark-bg);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+        
+        figure {
+            margin: 0;
+        }
+        
+        figcaption {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inventory Request Process</h1>
+        </header>
+        
+        <section>
+            <h2>System Description</h2>
+            <p>
+                The system automates an efficient inventory request process, involving vendors and warehouse managers, and inventory management through Zoho CRM and Zoho Inventory. The system facilitates the submission, approval, and notification of inventory requests, ensuring accurate checking of stock availability and compliance with record limits. After approval, the system automatically assigns requests to the relevant vendor, streamlining inventory management.
+            </p>
+        </section>
+        
+        <section>
+            <h2>Actor Descriptions</h2>
+            
+            <div class="actor-card">
+                <div class="actor-title">Vendor (V)</div>
+                <p>
+                    The vendor is responsible for submitting inventory requests to Zoho CRM, providing essential details such as name, ID, date, time, items, and quantity. Upon approval, the vendor acknowledges receipt of the request, ensuring accurate communication throughout the process.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">Zoho CRM</div>
+                <p>
+                    Zoho CRM serves as the central hub for managing inventory requests and notifications. It forwards requests to the warehouse manager for approval, managing communication between the vendor and the warehouse manager, ensuring a smooth workflow and documentation of notifications.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">Warehouse Manager (WM)</div>
+                <p>
+                    The warehouse manager reviews inventory requests submitted by the vendor, checks stock availability, and the vendor's record limits to ensure compliance. The manager has the authority to approve or reject requests and is responsible for ensuring proper inventory procedures are followed.
+                </p>
+            </div>
+            
+            <div class="actor-card">
+                <div class="actor-title">Zoho Inventory (ZI)</div>
+                <p>
+                    The Zoho Inventory system manages inventory and transfer operations. It checks stock availability, creates transfer orders, and automatically assigns approved requests to the appropriate vendor (sub-warehouse). The system ensures all inventory tasks are executed efficiently without manual intervention.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Process Flow Diagram</h2>
+            <div class="image-container">
+                <figure>
+                    <div class="responsive-image-wrapper">
+                        <img id="flowchart" class="responsive-image" alt="Inventory Request Process Flow Diagram" src="https://www.mermaidchart.com/raw/dca96a19-1dd7-47bd-a088-c4babcd5b7e7?theme=light&version=v0.1&format=svg">
+                    </div>
+                    <figcaption>Figure 1: Inventory Request Process Flow Diagram</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Actor Responsibilities</h2>
+            <p>
+                Below is a detailed description of the responsibilities of each actor in the inventory request process, along with a sequence diagram and scenario example for context.
+            </p>
+            
+            <h3>1. Vendor (V)</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Submit inventory requests to Zoho CRM, providing essential details such as name, ID, date, time, items, and quantity.</li>
+                    <li>Ensure the accuracy and completeness of requests, complying with company policies and inventory needs.</li>
+                    <li>Confirm receipt of approval or rejection notifications from Zoho CRM.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        A vendor identifies the need for additional stock of a specific product. They log into Zoho CRM, fill out the inventory request form with the necessary details, and submit it for review.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>2. Zoho CRM</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Acts as the main hub for managing inventory requests and facilitating communication between the vendor and the warehouse manager.</li>
+                    <li>Forwards inventory requests from the vendor to the warehouse manager for approval.</li>
+                    <li>Sends notifications to the vendor regarding the status of their requests (approved or rejected) and manages the acknowledgment process.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        After the vendor submits an inventory request, Zoho CRM automatically forwards the request to the warehouse manager for approval. Once the warehouse manager makes a decision, Zoho CRM notifies the vendor of the approval or rejection.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>3. Warehouse Manager (WM)</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Reviews inventory requests submitted by the vendor, checking the availability of the requested items in Zoho inventory.</li>
+                    <li>Checks the vendor's record to ensure compliance with company policies. For example, if the vendor has outstanding debts, approval is not granted.</li>
+                    <li>Decides whether to approve or reject inventory requests based on availability limits and records.</li>
+                    <li>Initiates the creation of transfer orders in Zoho Inventory upon approval.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        The warehouse manager receives the inventory request from Zoho CRM. After checking the inventory and the vendor's previous request records, they approve the request. Then, Zoho Inventory is directed to create a transfer order for the requested items.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>4. Zoho Inventory (ZI)</h3>
+            <div class="actor-card">
+                <strong>Responsibilities:</strong>
+                <ul>
+                    <li>Manages inventory and transfer operations, ensuring stock levels are maintained.</li>
+                    <li>Checks stock availability upon request from the warehouse manager and creates transfer orders as needed.</li>
+                    <li>Automatically assigns approved requests to the relevant vendor in the sub-warehouse.</li>
+                </ul>
+                
+                <div class="scenario">
+                    <div class="scenario-title">Scenario Example:</div>
+                    <p>
+                        After receiving approval from the warehouse manager, Zoho Inventory creates a transfer order for the requested items and assigns the request to the vendor's name. The system ensures accurate stock updates and distribution.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Summary of Responsibilities</h2>
+            <ul>
+                <li><strong>Vendor:</strong> Creates inventory requests and ensures their accuracy and completeness.</li>
+                <li><strong>Zoho CRM:</strong> Facilitates communication and manages the flow of requests and notifications.</li>
+                <li><strong>Warehouse Manager:</strong> Reviews requests, checks inventory and compliance, and approves or rejects requests.</li>
+                <li><strong>Zoho Inventory:</strong> Manages inventory operations and processes requests, ensuring proper distribution and updates.</li>
+            </ul>
+            <p>
+                These responsibilities outline the role of each actor and the scenarios in the inventory request process, ensuring efficient communication and inventory management.
+            </p>
+        </section>
+        
+        <section>
+            <h2>Swimlane Diagram</h2>
+            <div class="image-container">
+                <figure>
+                    <div class="responsive-image-wrapper">
+                        <img id="swimlane" class="responsive-image" alt="Swimlane Diagram for Inventory Request Process" src="https://www.mermaidchart.com/raw/02bc90f0-03a7-40f5-b219-bd2a0c57b8f2?theme=light&version=v0.1&format=svg">
+                    </div>
+                    <figcaption>Figure 2: Swimlane Diagram for Inventory Request Process</figcaption>
+                </figure>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Always set dark mode
+        document.documentElement.classList.add('dark');
+    </script>
+</body>
+</html>
