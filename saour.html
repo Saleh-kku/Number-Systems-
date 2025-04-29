@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة سعور المحدودة | Saour Limited Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3a3a8c',
+                        primaryLight: '#5151a8',
+                        primaryDark: '#2a2a66',
+                        neutral: {
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /* Arabic Font */
+        [lang="ar"] .font-primary {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* English Font */
+        [lang="en"] .font-primary {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Content visibility based on language */
+        [lang="ar"] .ar-content { display: block; }
+        [lang="ar"] .en-content { display: none; }
+        [lang="en"] .ar-content { display: none; }
+        [lang="en"] .en-content { display: block; }
+        
+        /* Transition effects */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3a8c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5151a8;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #262626;
+        }
+    </style>
+</head>
+<body class="font-primary bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-neutral-900 shadow dark:shadow-neutral-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Company Name -->
+            <div class="text-primary font-bold">
+                <h1 class="ar-content text-xl md:text-2xl">شركة سعور المحدودة</h1>
+                <h1 class="en-content text-xl md:text-2xl">Saour Limited Company</h1>
+            </div>
+            
+            <!-- Navigation Links and Controls -->
+            <div class="flex items-center gap-4">
+                <!-- Navigation Links - These will be hidden on mobile and shown in a menu -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#about" class="hover:text-primary transition-colors">
+                        <span class="ar-content">من نحن</span>
+                        <span class="en-content">About Us</span>
+                    </a>
+                    <a href="#story" class="hover:text-primary transition-colors">
+                        <span class="ar-content">قصتنا</span>
+                        <span class="en-content">Our Story</span>
+                    </a>
+                    <a href="#products" class="hover:text-primary transition-colors">
+                        <span class="ar-content">منتجاتنا</span>
+                        <span class="en-content">Our Products</span>
+                    </a>
+                    <a href="#contact" class="hover:text-primary transition-colors">
+                        <span class="ar-content">تواصل معنا</span>
+                        <span class="en-content">Contact Us</span>
+                    </a>
+                </nav>
+                
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle" class="px-3 py-1 bg-primary text-white rounded-md hover:bg-primaryLight transition-colors text-sm">
+                    <span class="ar-content">English</span>
+                    <span class="en-content">العربية</span>
+                </button>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                    <!-- Sun icon for dark mode -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Moon icon for light mode -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="p-2 rounded-md md:hidden hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-900 shadow-md dark:shadow-neutral-800 transition-colors duration-300">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-2">
+                <a href="#about" class="py-2 hover:text-primary transition-colors">
+                    <span class="ar-content">من نحن</span>
+                    <span class="en-content">About Us</span>
+                </a>
+                <a href="#story" class="py-2 hover:text-primary transition-colors">
+                    <span class="ar-content">قصتنا</span>
+                    <span class="en-content">Our Story</span>
+                </a>
+                <a href="#products" class="py-2 hover:text-primary transition-colors">
+                    <span class="ar-content">منتجاتنا</span>
+                    <span class="en-content">Our Products</span>
+                </a>
+                <a href="#contact" class="py-2 hover:text-primary transition-colors">
+                    <span class="ar-content">تواصل معنا</span>
+                    <span class="en-content">Contact Us</span>
+                </a>
+                <a href="https://accounts.zoho.com/signin" target="_blank" class="py-2 text-primary font-medium">
+                    <span class="ar-content">دخول الموظفين</span>
+                    <span class="en-content">Employee Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-primary to-primaryDark text-white">
+        <div class="container mx-auto px-4 flex flex-col items-center justify-center text-center">
+            <h1 class="ar-content text-3xl md:text-5xl font-bold mb-6">شركة سعور المحدودة</h1>
+            <h1 class="en-content text-3xl md:text-5xl font-bold mb-6">Saour Limited Company</h1>
+            
+            <p class="ar-content text-lg md:text-xl max-w-2xl mb-8">نقدم منتجات للمستخدمين بجودة عالية و اسعار منخفضة</p>
+            <p class="en-content text-lg md:text-xl max-w-2xl mb-8">We provide consumer items with high quality and affordable prices. Our premium products serve hotels, restaurants, factories, and various businesses across Saudi Arabia, delivering essential supplies with unmatched reliability.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                <a href="#products" class="px-6 py-3 bg-white text-primary rounded-md hover:bg-neutral-100 transition-colors font-medium">
+                    <span class="ar-content">استكشاف المنتجات</span>
+                    <span class="en-content">Explore Products</span>
+                </a>
+                <a href="https://accounts.zoho.com/signin" target="_blank" class="px-6 py-3 bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-primary transition-colors font-medium">
+                    <span class="ar-content">دخول الموظفين</span>
+                    <span class="en-content">Employee Login</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white dark:bg-neutral-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="ar-content text-3xl font-bold text-primary mb-4">من نحن</h2>
+                <h2 class="en-content text-3xl font-bold text-primary mb-4">About Us</h2>
+                
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <p class="ar-content text-lg leading-relaxed mb-4">
+                    في شركة سعور المحدودة، نحن ملتزمون بتقديم منتجات استهلاكية عالية الجودة بأسعار معقولة. مهمتنا هي أن نكون الشريك الموثوق به للشركات في جميع أنحاء المملكة العربية السعودية، حيث نقدم احتياجاتهم الأساسية من المناديل والأكواب البلاستيكية والعديد من المنتجات الأخرى.
+                </p>
+                <p class="ar-content text-lg leading-relaxed mb-4">
+                    نؤمن بأن الجودة والموثوقية يجب أن تكون في متناول الجميع. نحرص على اختيار المواد الأفضل وتطبيق معايير صارمة للجودة لضمان أن منتجاتنا تلبي احتياجات عملائنا وتتجاوز توقعاتهم، مع الحفاظ على أسعار تنافسية.
+                </p>
+                
+                <p class="en-content text-lg leading-relaxed mb-4">
+                    At Saour Limited Company, we are committed to providing high-quality consumer products at affordable prices. Our mission is to be the trusted partner for businesses across Saudi Arabia, delivering their essential needs from napkins and plastic cups to many other essential products.
+                </p>
+                <p class="en-content text-lg leading-relaxed mb-4">
+                    We believe that quality and reliability should be accessible to everyone. We take care to select the best materials and apply strict quality standards to ensure our products meet and exceed our customers' needs while maintaining competitive prices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="py-16 bg-neutral-100 dark:bg-neutral-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                    <div class="rounded-lg overflow-hidden shadow-lg h-[350px] bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-700 dark:to-neutral-600 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2">
+                    <h2 class="ar-content text-3xl font-bold text-primary mb-6">قصتنا</h2>
+                    <h2 class="en-content text-3xl font-bold text-primary mb-6">Our Story</h2>
+                    
+                    <p class="ar-content text-lg leading-relaxed mb-4">
+                        بدأت شركة سعور المحدودة رحلتها عام 2018 كشركة صغيرة ولكن طموحة في الرياض. انطلقنا من رؤية بسيطة: تقديم منتجات استهلاكية عالية الجودة بأسعار معقولة للشركات السعودية.
+                    </p>
+                    <p class="ar-content text-lg leading-relaxed mb-4">
+                        مع مرور السنوات، نمت شركتنا بشكل كبير بفضل التزامنا بالجودة والموثوقية. اليوم، نفتخر بخدمة مجموعة متنوعة من العملاء، من الفنادق والمطاعم إلى المصانع والشركات في جميع أنحاء المملكة. ما زلنا ملتزمين برؤيتنا الأصلية، ونسعى باستمرار لتحسين منتجاتنا وتوسيع نطاق خدماتنا.
+                    </p>
+                    
+                    <p class="en-content text-lg leading-relaxed mb-4">
+                        Saour Limited Company began its journey in 2018 as a small but ambitious company in Riyadh. We started with a simple vision: to provide high-quality consumer products at affordable prices to Saudi businesses.
+                    </p>
+                    <p class="en-content text-lg leading-relaxed mb-4">
+                        Over the years, our company has grown significantly thanks to our commitment to quality and reliability. Today, we are proud to serve a diverse range of clients, from hotels and restaurants to factories and businesses across the Kingdom. We remain committed to our original vision, constantly seeking to improve our products and expand our services.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products Section -->
+    <section id="products" class="py-16 bg-white dark:bg-neutral-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="ar-content text-3xl font-bold text-primary mb-4">منتجاتنا</h2>
+                <h2 class="en-content text-3xl font-bold text-primary mb-4">Our Products</h2>
+                
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Product Category 1: Napkins -->
+                <div class="bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-primaryLight/20 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="ar-content text-xl font-bold mb-3">المناديل</h3>
+                        <h3 class="en-content text-xl font-bold mb-3">Napkins</h3>
+                        
+                        <p class="ar-content mb-4">مناديل عالية الجودة مثالية للفنادق والمطاعم والمكاتب. متوفرة بأحجام وسماكات مختلفة لتناسب جميع الاحتياجات.</p>
+                        <p class="en-content mb-4">High-quality napkins perfect for hotels, restaurants, and offices. Available in various sizes and thicknesses to suit all needs.</p>
+                    </div>
+                </div>
+                
+                <!-- Product Category 2: Plastic Cups -->
+                <div class="bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-primaryLight/20 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="ar-content text-xl font-bold mb-3">الأكواب البلاستيكية</h3>
+                        <h3 class="en-content text-xl font-bold mb-3">Plastic Cups</h3>
+                        
+                        <p class="ar-content mb-4">أكواب بلاستيكية متينة مناسبة للمشروبات الساخنة والباردة. متوفرة بأحجام متعددة وتصميمات أنيقة.</p>
+                        <p class="en-content mb-4">Durable plastic cups suitable for hot and cold beverages. Available in multiple sizes and elegant designs.</p>
+                    </div>
+                </div>
+                
+                <!-- Product Category 3: Packaging Materials -->
+                <div class="bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-primaryLight/20 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="ar-content text-xl font-bold mb-3">مواد التغليف</h3>
+                        <h3 class="en-content text-xl font-bold mb-3">Packaging Materials</h3>
+                        
+                        <p class="ar-content mb-4">مجموعة واسعة من مواد التغليف عالية الجودة للمطاعم والفنادق والشركات. مواد آمنة وصديقة للبيئة.</p>
+                        <p class="en-content mb-4">A wide range of high-quality packaging materials for restaurants, hotels, and businesses. Safe and environmentally friendly materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Information Section -->
+    <section id="contact" class="py-16 bg-neutral-100 dark:bg-neutral-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="ar-content text-3xl font-bold text-primary mb-4">معلومات الشركة</h2>
+                <h2 class="en-content text-3xl font-bold text-primary mb-4">Company Information</h2>
+                
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white dark:bg-neutral-900 rounded-lg shadow-md overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 border-b md:border-b-0 md:border-l dark:border-neutral-700">
+                        <div class="mb-6">
+                            <h3 class="ar-content text-lg font-bold mb-2">رقم السجل التجاري</h3>
+                            <h3 class="en-content text-lg font-bold mb-2">Commercial Registration Number</h3>
+                            <p class="text-lg text-primary font-medium">1009139467</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="ar-content text-lg font-bold mb-2">الرقم الضريبي</h3>
+                            <h3 class="en-content text-lg font-bold mb-2">Tax Identification Number</h3>
+                            <p class="text-lg text-primary font-medium">312668233800003</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h3 class="ar-content text-lg font-bold mb-2">الموقع</h3>
+                            <h3 class="en-content text-lg font-bold mb-2">Location</h3>
+                            <p class="ar-content">الرياض، حي العليا، 12221</p>
+                            <p class="en-content">Riyadh District, Riyadh, Olaya, 12221</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="ar-content text-lg font-bold mb-2">البريد الإلكتروني للدعم</h3>
+                            <h3 class="en-content text-lg font-bold mb-2">Support Email</h3>
+                            <a href="mailto:support@saour.sa" class="text-primary hover:underline">support@saour.sa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center gap-6 mt-12">
+                <a href="#" class="text-primary hover:text-primaryLight transition-colors" title="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-primary hover:text-primaryLight transition-colors" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-primary hover:text-primaryLight transition-colors" title="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Employee Access Button -->
+            <div class="mt-12 text-center">
+                <a href="https://accounts.zoho.com/signin" target="_blank" class="inline-block px-8 py-3 bg-primary text-white rounded-md hover:bg-primaryLight transition-colors font-medium shadow-md">
+                    <span class="ar-content">دخول الموظفين</span>
+                    <span class="en-content">Employee Login</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6">
+                    <h3 class="ar-content text-xl font-bold mb-2">شركة سعور المحدودة</h3>
+                    <h3 class="en-content text-xl font-bold mb-2">Saour Limited Company</h3>
+                </div>
+                
+                <div class="mb-6 text-sm opacity-90">
+                    <p class="ar-content">جميع الحقوق محفوظة © 2023 شركة سعور المحدودة. نلتزم بحماية خصوصية زوار موقعنا ونضمن أن أي معلومات تشاركها معنا ستبقى آمنة ومحمية.</p>
+                    <p class="en-content">All Rights Reserved © 2023 Saour Limited Company. We are committed to protecting the privacy of our website visitors and ensure that any information you share with us will remain secure and protected.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode handling based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Dark mode toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // Language toggle functionality
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const currentLang = htmlElement.getAttribute('lang');
+            
+            if (currentLang === 'ar') {
+                htmlElement.setAttribute('lang', 'en');
+                htmlElement.setAttribute('dir', 'ltr');
+            } else {
+                htmlElement.setAttribute('lang', 'ar');
+                htmlElement.setAttribute('dir', 'rtl');
+            }
+            
+            // Add fade animation effect
+            document.body.classList.add('fade-in');
+            setTimeout(() => {
+                document.body.classList.remove('fade-in');
+            }, 500);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
