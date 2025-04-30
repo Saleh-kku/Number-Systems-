@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة سعور المحدودة | Saour Limited Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3a3a8c',
+                        primaryLight: '#5151a8',
+                        primaryDark: '#2a2a66',
+                        neutral: {
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /* Arabic Font */
+        [lang="ar"] .font-primary {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* English Font */
+        [lang="en"] .font-primary {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Content visibility based on language */
+        [lang="ar"] .ar-content { display: block; }
+        [lang="ar"] .en-content { display: none; }
+        [lang="en"] .ar-content { display: none; }
+        [lang="en"] .en-content { display: block; }
+        
+        /* Transition effects */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Calendar table styles */
+        .calendar-table th, .calendar-table td {
+            width: 2.5rem;
+            height: 2.5rem;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .calendar-table .current-day {
+            background-color: #3a3a8c;
+            color: white;
+            border-radius: 9999px;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3a8c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5151a8;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #262626;
+        }
+    </style>
+</head>
+<body class="font-primary bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 transition-colors duration-300">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-neutral-900 shadow dark:shadow-neutral-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Company Name -->
+            <div class="text-primary font-bold">
+                <h1 class="ar-content text-xl md:text-2xl">شركة سعور المحدودة</h1>
+                <h1 class="en-content text-xl md:text-2xl">Saour Limited Company</h1>
+            </div>
+            
+            <!-- Navigation Links and Controls -->
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle" class="px-3 py-1 bg-primary text-white rounded-md hover:bg-primaryLight transition-colors text-sm">
+                    <span class="ar-content">English</span>
+                    <span class="en-content">العربية</span>
+                </button>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                    <!-- Sun icon for dark mode -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Moon icon for light mode -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Date & Time Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-primary to-primaryDark text-white">
+            <div class="container mx-auto px-4 flex flex-col items-center justify-center text-center">
+                <div class="mb-6">
+                    <h2 class="ar-content text-2xl font-bold mb-2">الوقت والتاريخ الحالي</h2>
+                    <h2 class="en-content text-2xl font-bold mb-2">Current Date & Time</h2>
+                </div>
+                
+                <div id="clock" class="text-5xl md:text-7xl font-bold mb-4">00:00:00</div>
+                <div id="date" class="text-xl md:text-2xl mb-8">January 1, 2023</div>
+                
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <div class="px-6 py-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                        <div class="ar-content">
+                            <div class="text-lg font-semibold mb-1">اليوم</div>
+                            <div id="ar-day" class="text-xl font-bold">الأحد</div>
+                        </div>
+                        <div class="en-content">
+                            <div class="text-lg font-semibold mb-1">Day</div>
+                            <div id="en-day" class="text-xl font-bold">Sunday</div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 py-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                        <div class="ar-content">
+                            <div class="text-lg font-semibold mb-1">الشهر</div>
+                            <div id="ar-month" class="text-xl font-bold">يناير</div>
+                        </div>
+                        <div class="en-content">
+                            <div class="text-lg font-semibold mb-1">Month</div>
+                            <div id="en-month" class="text-xl font-bold">January</div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 py-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                        <div class="ar-content">
+                            <div class="text-lg font-semibold mb-1">السنة</div>
+                            <div id="ar-year" class="text-xl font-bold">٢٠٢٣</div>
+                        </div>
+                        <div class="en-content">
+                            <div class="text-lg font-semibold mb-1">Year</div>
+                            <div id="en-year" class="text-xl font-bold">2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivational Quote Section -->
+        <section class="py-16 bg-white dark:bg-neutral-900 transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center bg-neutral-100 dark:bg-neutral-800 rounded-xl p-8 shadow-lg">
+                    <div class="text-5xl mb-6">✨ 💪 🚀</div>
+                    
+                    <h2 class="ar-content text-2xl md:text-3xl font-bold text-primary mb-4">استمر في المضي قدمًا! سوف تنجح!</h2>
+                    <h2 class="en-content text-2xl md:text-3xl font-bold text-primary mb-4">Keep on going! You will do it!</h2>
+                    
+                    <p class="ar-content text-lg">لا تتوقف أبدًا عن السعي نحو أهدافك. النجاح هو رحلة، وليس وجهة. 🌟</p>
+                    <p class="en-content text-lg">Never stop pursuing your goals. Success is a journey, not a destination. 🌟</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section class="py-16 bg-neutral-100 dark:bg-neutral-800 transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="ar-content text-3xl font-bold text-primary mb-4">التقويم</h2>
+                    <h2 class="en-content text-3xl font-bold text-primary mb-4">Calendar</h2>
+                    
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto bg-white dark:bg-neutral-900 rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 id="calendar-header" class="text-xl font-bold text-primary">January 2023</h3>
+                            <div class="flex gap-2">
+                                <button id="prev-month" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <button id="next-month" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <table id="calendar-table" class="calendar-table w-full border-collapse">
+                            <thead>
+                                <tr class="text-primary">
+                                    <th class="ar-content">أحد</th>
+                                    <th class="ar-content">اثنين</th>
+                                    <th class="ar-content">ثلاثاء</th>
+                                    <th class="ar-content">أربعاء</th>
+                                    <th class="ar-content">خميس</th>
+                                    <th class="ar-content">جمعة</th>
+                                    <th class="ar-content">سبت</th>
+                                    
+                                    <th class="en-content">Sun</th>
+                                    <th class="en-content">Mon</th>
+                                    <th class="en-content">Tue</th>
+                                    <th class="en-content">Wed</th>
+                                    <th class="en-content">Thu</th>
+                                    <th class="en-content">Fri</th>
+                                    <th class="en-content">Sat</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-body">
+                                <!-- Calendar days will be filled with JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6">
+                    <h3 class="ar-content text-xl font-bold mb-2">شركة سعور المحدودة</h3>
+                    <h3 class="en-content text-xl font-bold mb-2">Saour Limited Company</h3>
+                </div>
+                
+                <div class="mb-6 text-sm opacity-90">
+                    <p class="ar-content">جميع الحقوق محفوظة © 2023 شركة سعور المحدودة.</p>
+                    <p class="en-content">All Rights Reserved © 2023 Saour Limited Company.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode handling based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Dark mode toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // Language toggle functionality
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const currentLang = htmlElement.getAttribute('lang');
+            
+            if (currentLang === 'ar') {
+                htmlElement.setAttribute('lang', 'en');
+                htmlElement.setAttribute('dir', 'ltr');
+            } else {
+                htmlElement.setAttribute('lang', 'ar');
+                htmlElement.setAttribute('dir', 'rtl');
+            }
+            
+            // Update calendar to reflect language change
+            updateCalendar();
+            
+            // Add fade animation effect
+            document.body.classList.add('fade-in');
+            setTimeout(() => {
+                document.body.classList.remove('fade-in');
+            }, 500);
+        });
+        
+        // Clock and Date Functions
+        function updateClock() {
+            const now = new Date();
+            const clockElement = document.getElementById('clock');
+            const dateElement = document.getElementById('date');
+            const enDayElement = document.getElementById('en-day');
+            const arDayElement = document.getElementById('ar-day');
+            const enMonthElement = document.getElementById('en-month');
+            const arMonthElement = document.getElementById('ar-month');
+            const enYearElement = document.getElementById('en-year');
+            const arYearElement = document.getElementById('ar-year');
+            
+            // Update time
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // Update date (English format)
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = now.toLocaleDateString('en-US', options);
+            
+            // Update day names
+            const englishDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const arabicDays = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+            enDayElement.textContent = englishDays[now.getDay()];
+            arDayElement.textContent = arabicDays[now.getDay()];
+            
+            // Update month names
+            const englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+            enMonthElement.textContent = englishMonths[now.getMonth()];
+            arMonthElement.textContent = arabicMonths[now.getMonth()];
+            
+            // Update year
+            enYearElement.textContent = now.getFullYear();
+            
+            // Convert to Arabic numerals
+            const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+            const yearString = now.getFullYear().toString();
+            let arabicYear = '';
+            for (let i = 0; i < yearString.length; i++) {
+                arabicYear += arabicNumerals[parseInt(yearString[i])];
+            }
+            arYearElement.textContent = arabicYear;
+        }
+        
+        // Call updateClock immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        // Calendar Functions
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+        
+        function updateCalendar() {
+            const calendarHeader = document.getElementById('calendar-header');
+            const calendarBody = document.getElementById('calendar-body');
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            
+            // English and Arabic month names
+            const englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+            
+            // Update header based on language
+            const currentLang = document.documentElement.getAttribute('lang');
+            if (currentLang === 'ar') {
+                calendarHeader.textContent = `${arabicMonths[currentMonth]} ${currentYear}`;
+            } else {
+                calendarHeader.textContent = `${englishMonths[currentMonth]} ${currentYear}`;
+            }
+            
+            // Clear previous calendar
+            calendarBody.innerHTML = '';
+            
+            let date = 1;
+            
+            // Create calendar rows
+            for (let i = 0; i < 6; i++) {
+                // Create a table row
+                let row = document.createElement('tr');
+                
+                // Create individual cells and fill them with data
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        // Empty cells before the first day of the month
+                        let cell = document.createElement('td');
+                        let cellText = document.createTextNode('');
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        // Stop after we've reached the end of the month
+                        break;
+                    } else {
+                        // Regular day cells
+                        let cell = document.createElement('td');
+                        cell.classList.add('text-center', 'py-2');
+                        
+                        // Highlight the current day
+                        if (date === new Date().getDate() && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()) {
+                            cell.classList.add('current-day');
+                        }
+                        
+                        let cellText = document.createTextNode(date);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+                
+                calendarBody.appendChild(row);
+                
+                // If we've reached the end of the month, break out of the loop
+                if (date > daysInMonth) {
+                    break;
+                }
+            }
+        }
+        
+        // Initial calendar setup
+        updateCalendar();
+        
+        // Event listeners for month navigation
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            updateCalendar();
+        });
+        
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            updateCalendar();
+        });
+    </script>
+</body>
+</html>
