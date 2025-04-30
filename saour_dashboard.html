@@ -176,80 +176,7 @@
             </div>
         </section>
 
-        <!-- Motivational Quote Section -->
-        <section class="py-16 bg-white dark:bg-neutral-900 transition-colors duration-300">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center bg-neutral-100 dark:bg-neutral-800 rounded-xl p-8 shadow-lg">
-                    <div class="text-5xl mb-6">✨ 💪 🚀</div>
-                    
-                    <h2 class="ar-content text-2xl md:text-3xl font-bold text-primary mb-4">استمر في المضي قدمًا! سوف تنجح!</h2>
-                    <h2 class="en-content text-2xl md:text-3xl font-bold text-primary mb-4">Keep on going! You will do it!</h2>
-                    
-                    <p class="ar-content text-lg">لا تتوقف أبدًا عن السعي نحو أهدافك. النجاح هو رحلة، وليس وجهة. 🌟</p>
-                    <p class="en-content text-lg">Never stop pursuing your goals. Success is a journey, not a destination. 🌟</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Calendar Section -->
-        <section class="py-16 bg-neutral-100 dark:bg-neutral-800 transition-colors duration-300">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="ar-content text-3xl font-bold text-primary mb-4">التقويم</h2>
-                    <h2 class="en-content text-3xl font-bold text-primary mb-4">Calendar</h2>
-                    
-                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-                </div>
-                
-                <div class="max-w-3xl mx-auto bg-white dark:bg-neutral-900 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 id="calendar-header" class="text-xl font-bold text-primary">January 2023</h3>
-                            <div class="flex gap-2">
-                                <button id="prev-month" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <button id="next-month" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <!-- Weekday Labels (similar to the image you provided) -->
-                            <div class="flex flex-col items-end pr-4 py-2 text-primary">
-                                <div class="ar-content h-10 flex items-center">أحد</div>
-                                <div class="ar-content h-10 flex items-center">اثنين</div>
-                                <div class="ar-content h-10 flex items-center">ثلاثاء</div>
-                                <div class="ar-content h-10 flex items-center">أربعاء</div>
-                                <div class="ar-content h-10 flex items-center">خميس</div>
-                                <div class="ar-content h-10 flex items-center">جمعة</div>
-                                <div class="ar-content h-10 flex items-center">سبت</div>
-                                
-                                <div class="en-content h-10 flex items-center">Sun</div>
-                                <div class="en-content h-10 flex items-center">Mon</div>
-                                <div class="en-content h-10 flex items-center">Tue</div>
-                                <div class="en-content h-10 flex items-center">Wed</div>
-                                <div class="en-content h-10 flex items-center">Thu</div>
-                                <div class="en-content h-10 flex items-center">Fri</div>
-                                <div class="en-content h-10 flex items-center">Sat</div>
-                            </div>
-                            
-                            <!-- Calendar Grid -->
-                            <div class="flex-1">
-                                <div id="calendar-body" class="flex justify-between">
-                                    <!-- Calendar days will be filled with JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -301,8 +228,7 @@
                 htmlElement.setAttribute('dir', 'rtl');
             }
             
-            // Update calendar to reflect language change
-            updateCalendar();
+
             
             // Add fade animation effect
             document.body.classList.add('fade-in');
@@ -362,115 +288,7 @@
         updateClock();
         setInterval(updateClock, 1000);
         
-        // Calendar Functions
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
-        
-        function updateCalendar() {
-            const calendarHeader = document.getElementById('calendar-header');
-            const calendarBody = document.getElementById('calendar-body');
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            
-            // English and Arabic month names
-            const englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-            
-            // Update header based on language
-            const currentLang = document.documentElement.getAttribute('lang');
-            const isArabic = currentLang === 'ar';
-            
-            // Convert year to Arabic numerals if needed
-            let yearText = currentYear.toString();
-            if (isArabic) {
-                const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-                yearText = '';
-                for (let i = 0; i < currentYear.toString().length; i++) {
-                    yearText += arabicNumerals[parseInt(currentYear.toString()[i])];
-                }
-                calendarHeader.textContent = `${arabicMonths[currentMonth]} ${yearText}`;
-            } else {
-                calendarHeader.textContent = `${englishMonths[currentMonth]} ${yearText}`;
-            }
-            
-            // Clear previous calendar
-            calendarBody.innerHTML = '';
-            
-            // Create 7 columns for the days (Sunday through Saturday)
-            // We're creating a vertical calendar like in the image
-            const numCols = 7; // Number of days in a week
-            const numRows = Math.ceil(daysInMonth / numCols); // Number of weeks needed
-            
-            // In the image format, each column represents a day of week
-            for (let col = 0; col < numCols; col++) {
-                let column = document.createElement('tr');
-                column.classList.add('flex', 'flex-col');
-                
-                for (let row = 0; row < numRows; row++) {
-                    // Calculate the day number
-                    const dayNum = row * numCols + col + 1;
-                    
-                    if (dayNum <= daysInMonth) {
-                        let cell = document.createElement('td');
-                        cell.classList.add('text-center', 'py-2', 'h-10', 'flex', 'items-center', 'justify-center');
-                        
-                        // Add today's date highlight
-                        if (dayNum === new Date().getDate() && 
-                            currentMonth === new Date().getMonth() && 
-                            currentYear === new Date().getFullYear()) {
-                            cell.classList.add('current-day');
-                        }
-                        
-                        // Create day number text
-                        let cellText;
-                        if (isArabic) {
-                            // Convert to Arabic numerals
-                            const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-                            let arabicDayNum = '';
-                            for (let i = 0; i < dayNum.toString().length; i++) {
-                                arabicDayNum += arabicNumerals[parseInt(dayNum.toString()[i])];
-                            }
-                            cellText = document.createTextNode(arabicDayNum);
-                        } else {
-                            cellText = document.createTextNode(dayNum);
-                        }
-                        
-                        cell.appendChild(cellText);
-                        column.appendChild(cell);
-                    } else {
-                        // Empty cell for padding
-                        let cell = document.createElement('td');
-                        cell.classList.add('text-center', 'py-2', 'h-10');
-                        cell.appendChild(document.createTextNode(''));
-                        column.appendChild(cell);
-                    }
-                }
-                
-                calendarBody.appendChild(column);
-            }
-        }
-        
-        // Initial calendar setup
-        updateCalendar();
-        
-        // Event listeners for month navigation
-        document.getElementById('prev-month').addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            updateCalendar();
-        });
-        
-        document.getElementById('next-month').addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            updateCalendar();
-        });
+
     </script>
 </body>
 </html>
