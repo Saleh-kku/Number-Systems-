@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chart of Accounts Diagram</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f6f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    .coa-container {
+      max-width: 1100px; /* Increased to accommodate the new column */
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 24px;
+    }
+    h2 {
+      text-align: center;
+      color: #253858;
+      margin-bottom: 8px;
+    }
+    .coa-group {
+      margin-bottom: 32px;
+    }
+    .coa-group h3 {
+      background: #e3e9f5;
+      color: #23427c;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+    }
+    .coa-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      background: #fafdff;
+      font-size: 1em;
+    }
+    .coa-table th, .coa-table td {
+      padding: 10px 8px;
+      text-align: left;
+      border-bottom: 1px solid #e8e8ee;
+    }
+    .coa-table th {
+      background: #f1f4fa;
+      color: #34527e;
+      font-weight: 600;
+    }
+    .arabic {
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      text-align: right;
+      direction: rtl;
+    }
+    @media (max-width: 600px) {
+      .coa-container { padding: 8px; }
+      .coa-table, .coa-table thead, .coa-table tbody, .coa-table tr, .coa-table th, .coa-table td {
+        display: block;
+        width: 100%;
+      }
+      .coa-table th {
+        position: sticky;
+        top: 0;
+        background: #e3e9f5;
+      }
+      .coa-table tr {
+        margin-bottom: 12px;
+      }
+      .coa-table td {
+        border-bottom: none;
+        padding-left: 40%;
+        position: relative;
+      }
+      .coa-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: 600;
+        color: #34527e;
+        width: 35%;
+        white-space: nowrap;
+      }
+      .coa-table td.arabic {
+        text-align: right;
+        padding-right: 10px;
+        padding-left: 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="coa-container">
+    <h2>Chart of Accounts Diagram</h2>
+    <div class="coa-group">
+      <h3>Assets (What the business owns)</h3>
+      <table class="coa-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Arabic Name</th>
+            <th>Code</th>
+            <th>Example of financial transaction that could change this account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account Name">Bank Account</td>
+            <td data-label="Arabic Name" class="arabic">حساب بنكي</td>
+            <td data-label="Code">1001</td>
+            <td data-label="Example">Deposit SAR 100,000 as capital</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Petty Cash</td>
+            <td data-label="Arabic Name" class="arabic">النثريات</td>
+            <td data-label="Code">1002</td>
+            <td data-label="Example">Withdraw SAR 1,000 from bank for small expenses</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Inventory</td>
+            <td data-label="Arabic Name" class="arabic">المخزون</td>
+            <td data-label="Code">1101</td>
+            <td data-label="Example">Buy SAR 10,000 napkins for resale (stocked goods)</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Accounts Receivable</td>
+            <td data-label="Arabic Name" class="arabic">الذمم المدينة</td>
+            <td data-label="Code">1201</td>
+            <td data-label="Example">Sell napkins on credit; customer owes SAR 5,000</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Prepaid Expenses</td>
+            <td data-label="Arabic Name" class="arabic">المصروفات المدفوعة مقدماً</td>
+            <td data-label="Code">1301</td>
+            <td data-label="Example">Pay 6 months of warehouse rent in advance</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="coa-group">
+      <h3>Liabilities (What the business owes)</h3>
+      <table class="coa-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Arabic Name</th>
+            <th>Code</th>
+            <th>Example of financial transaction that could change this account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account Name">Accounts Payable</td>
+            <td data-label="Arabic Name" class="arabic">الذمم الدائنة</td>
+            <td data-label="Code">2001</td>
+            <td data-label="Example">Receive SAR 8,000 invoice from supplier, not paid yet</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">VAT Payable</td>
+            <td data-label="Arabic Name" class="arabic">ضريبة القيمة المضافة المستحقة</td>
+            <td data-label="Code">2101</td>
+            <td data-label="Example">Net VAT you owe to ZATCA after sales and purchases</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Other Liabilities</td>
+            <td data-label="Arabic Name" class="arabic">التزامات أخرى</td>
+            <td data-label="Code">2201</td>
+            <td data-label="Example">Take a SAR 50,000 loan from a friend or bank</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="coa-group">
+      <h3>Equity (Owner's Share)</h3>
+      <table class="coa-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Arabic Name</th>
+            <th>Code</th>
+            <th>Example of financial transaction that could change this account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account Name">Owner's Equity</td>
+            <td data-label="Arabic Name" class="arabic">حقوق الملكية</td>
+            <td data-label="Code">3001</td>
+            <td data-label="Example">Owner invests SAR 100,000 to start the business</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Retained Earnings</td>
+            <td data-label="Arabic Name" class="arabic">الأرباح المحتجزة</td>
+            <td data-label="Code">3101</td>
+            <td data-label="Example">Profits not withdrawn by owner at year-end</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="coa-group">
+      <h3>Income (Sales)</h3>
+      <table class="coa-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Arabic Name</th>
+            <th>Code</th>
+            <th>Example of financial transaction that could change this account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account Name">Sales - Napkins</td>
+            <td data-label="Arabic Name" class="arabic">مبيعات - مناديل</td>
+            <td data-label="Code">4001</td>
+            <td data-label="Example">Sold SAR 2,000 napkins (B2B or B2C) to a customer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="coa-group">
+      <h3>Expenses (Costs & Overheads)</h3>
+      <table class="coa-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Arabic Name</th>
+            <th>Code</th>
+            <th>Example of financial transaction that could change this account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account Name">Cost of Goods Sold (COGS)</td>
+            <td data-label="Arabic Name" class="arabic">تكلفة البضاعة المباعة</td>
+            <td data-label="Code">5001</td>
+            <td data-label="Example">Cost of napkins sold (Zoho auto-moves from Inventory)</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Salaries & Wages</td>
+            <td data-label="Arabic Name" class="arabic">الرواتب والأجور</td>
+            <td data-label="Code">5101</td>
+            <td data-label="Example">Pay SAR 4,000 salary to an employee</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Car Rental Expense</td>
+            <td data-label="Arabic Name" class="arabic">مصروفات إيجار السيارات</td>
+            <td data-label="Code">5102</td>
+            <td data-label="Example">Pay SAR 2,000/month for delivery van rental</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Shipping & Delivery Expense</td>
+            <td data-label="Arabic Name" class="arabic">مصروفات الشحن والتوصيل</td>
+            <td data-label="Code">5103</td>
+            <td data-label="Example">Pay SAR 300 to a courier for delivery</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Fuel & Vehicle Expenses</td>
+            <td data-label="Arabic Name" class="arabic">مصروفات الوقود والمركبات</td>
+            <td data-label="Code">5104</td>
+            <td data-label="Example">Spend SAR 100 from Petty Cash for gas</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Warehouse Rent</td>
+            <td data-label="Arabic Name" class="arabic">إيجار المستودع</td>
+            <td data-label="Code">5105</td>
+            <td data-label="Example">Pay SAR 5,000/month for warehouse</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Utilities</td>
+            <td data-label="Arabic Name" class="arabic">المرافق</td>
+            <td data-label="Code">5106</td>
+            <td data-label="Example">Pay SAR 250 for electricity</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Office Supplies</td>
+            <td data-label="Arabic Name" class="arabic">مستلزمات المكتب</td>
+            <td data-label="Code">5107</td>
+            <td data-label="Example">Buy SAR 50 of paper and pens</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Professional Fees</td>
+            <td data-label="Arabic Name" class="arabic">الرسوم المهنية</td>
+            <td data-label="Code">5108</td>
+            <td data-label="Example">Pay SAR 2,000 to accountant for VAT return</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">Bank Charges</td>
+            <td data-label="Arabic Name" class="arabic">رسوم بنكية</td>
+            <td data-label="Code">5109</td>
+            <td data-label="Example">SAR 30 monthly account maintenance fee</td>
+          </tr>
+          <tr>
+            <td data-label="Account Name">VAT on Purchases</td>
+            <td data-label="Arabic Name" class="arabic">ضريبة القيمة المضافة على المشتريات</td>
+            <td data-label="Code">5201</td>
+            <td data-label="Example">SAR 1,500 input VAT on napkin purchase</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
